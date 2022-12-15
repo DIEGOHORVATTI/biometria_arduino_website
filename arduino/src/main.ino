@@ -1,5 +1,4 @@
-
-#include "../"
+#include "../lib/Adafruit-Fingerprint-Sensor-Library/Adafruit_Fingerprint.h"
 
 //Senha padrão do sensor de digitais
 const uint32_t password = 0x0;
@@ -8,6 +7,11 @@ const uint32_t password = 0x0;
 //Utilizamos a Serial2 para comunicação e a senha padrão
 //Você também pode utilizar software serial se seu dispositivo não tiver  mais HardwareSerial disponível
 //Se não passar o parâmetro de senha ele também considera como senha padrão (0x0)
+
+// pin #2 is IN from sensor (GREEN wire)
+// pin #3 is OUT from arduino  (WHITE wire)
+// Set up the serial port to use softwareserial..
+SoftwareSerial Serial2(3, 4);
 Adafruit_Fingerprint fingerprintSensor = Adafruit_Fingerprint(&Serial2, password);
 
 void setup()  
@@ -73,12 +77,13 @@ void loop()
 void printMenu()
 {
   Serial.println();
-  Serial.println(F("Digite um dos números do menu abaixo"));
+  Serial.println(F("0 - Digite um dos números do menu abaixo"));
   Serial.println(F("1 - Cadastrar digital"));
   Serial.println(F("2 - Verificar digital"));
   Serial.println(F("3 - Mostrar quantidade de digitais cadastradas"));
   Serial.println(F("4 - Apagar digital em uma posição"));
   Serial.println(F("5 - Apagar banco de digitais"));
+  Serial.print(F(": "));
 }
 
 //Espera até que se digite algo no monitor serial e retorna o que foi digitado
@@ -91,8 +96,9 @@ String getCommand()
 //Cadastro da digital
 void storeFingerprint()
 {
-  Serial.println(F("Qual a posição para guardar a digital? (1 a 149)"));
-
+  Serial.println(F("\nQual a posição para guardar a digital? (1 a 149)"));
+  Serial.print(F(": "));
+  
   //Lê o que foi digitado no monitor serial
   String strLocation = getCommand();
 

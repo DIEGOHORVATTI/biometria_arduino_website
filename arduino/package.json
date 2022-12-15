@@ -1,0 +1,14 @@
+{
+  "name": "arduino",
+  "version": "1.0.0",
+  "main": "src/main.ino",
+  "license": "MIT",
+  "scripts": {
+    "remove:node_modules": "rm -rf ./node_modules",
+    "install": "cd ./lib && git clone https://github.com/adafruit/Adafruit-Fingerprint-Sensor-Library.git && yarn remove:node_modules",
+    "compiler": "pio run --target upload",
+    "start:python": "python3 ./src/inity.py",
+    "monitorSerial": "pio device monitor -p /dev/ttyACM0 -b 9600",
+    "dev": "yarn compiler && yarn monitorSerial && remove:node_modules"
+  }
+}
