@@ -1,19 +1,24 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "target": "ESNext",
-    "module": "commonjs",
-    "lib": ["dom", "es2021"],
-    "jsx": "react-jsx",
-    "strict": true,
-    "sourceMap": true,
-    "baseUrl": "./src",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
     "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "outDir": ".erb/dll",
+    "incremental": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "sourceMap": true,
+    "target": "es5",
     "allowJs": true,
-    "outDir": ".erb/dll"
+    "noEmit": true,
+    "strict": true
   },
   "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
 }

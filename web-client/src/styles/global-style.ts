@@ -25,6 +25,7 @@ export default createGlobalStyle`
   body {
     font-size: ${sizes.fontSize};
     background-color: ${colors.body}
+    background-color: blue;
   }
 
   .crisp-client {

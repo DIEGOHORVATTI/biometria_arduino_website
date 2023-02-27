@@ -28,6 +28,7 @@
     "react/react-in-jsx-scope": "off",
     "react/display-name": "off",
     "prettier/prettier": "off",
+    "multiline-ternary": "off",
     "no-unused-vars": "warn",
     "no-unreachable": "warn",
     "camelcase": "off"
